@@ -108,14 +108,14 @@ public class Board {
 
     }
     public void print() {
-        for (int i = 0; i < boardHeight; i++) {
-            for (int j = 0; j < boardWidth; j++) {
-                String letter = board[i][j] + "";
-                letter = colorLetter(letter);
-                System.out.print(letter);
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i < boardHeight; i++) {
+//            for (int j = 0; j < boardWidth; j++) {
+//                String letter = board[i][j] + "";
+//                letter = colorLetter(letter);
+//                System.out.print(letter);
+//            }
+//            System.out.println();
+//        }
         System.out.println("Direction: " + Util.getDirectionsArrow(getPLayerDir()));
         System.out.println("Score: " + player.getScore());
     }
@@ -187,6 +187,9 @@ public class Board {
 
     public char[][] getBoard() {
         return board;
+    }
+    public Position getPlayerPosition() {
+        return this.player.position;
     }
 
 }

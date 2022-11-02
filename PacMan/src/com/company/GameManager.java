@@ -57,11 +57,14 @@ public class GameManager implements NativeKeyListener {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException e) {
+            System.out.println(e.toString());
         }
-        GlobalScreen.addNativeKeyListener((NativeKeyListener) this);
+        GlobalScreen.addNativeKeyListener(this);
         LogManager.getLogManager().reset();
         Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
         logger.setLevel(Level.OFF);
+
+        System.out.println(" registered = "  + GlobalScreen.isNativeHookRegistered());
     }
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
@@ -69,12 +72,15 @@ public class GameManager implements NativeKeyListener {
         board.changeDirection(newDir);
         window.updateFrame(board.getBoard());
 
+
     }
     @Override
     public void nativeKeyTyped(NativeKeyEvent nativeKeyEvent) {
+        System.out.println("keyPressed");
     }
     @Override
     public void nativeKeyReleased(NativeKeyEvent e) {
+        System.out.println("keyPressed");
 
     }
     public Directions getDirectionFromKeyCode(int keyCode) {

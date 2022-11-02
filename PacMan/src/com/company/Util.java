@@ -25,4 +25,8 @@ public class Util {
         }
         return ch;
     }
+
+    public static boolean isPacman(char ch) {
+        return "ASDF".indexOf(ch) != -1;
+    }
 }
